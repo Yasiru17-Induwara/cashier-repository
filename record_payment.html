@@ -14,7 +14,6 @@
             <div class="sidebar-header">
                 <h3>UMS Cashier</h3>
             </div>
-            <!-- Updated simplified sidebar -->
             <nav class="sidebar-nav">
                 <a href="cashier-dashboard.html" class="nav-item active">Outstanding Bills</a>
                 <a href="generate-bill.html" class="nav-item">Generate Bill</a>
@@ -37,40 +36,55 @@
                     <h3>Process New Payment</h3>
                     <p>Confirm the payment details for the selected bill.</p>
                     
-                    <form class="data-form">
+                    <!-- 
+                      *** FIX 1: Added id="record-payment-form" ***
+                    -->
+                    <form class="data-form" id="record-payment-form">
+                        
+                        <!-- 
+                          *** FIX 2: Added form-message div ***
+                        -->
+                        <div class="form-message"></div>
+
                         <div class="form-grid">
                             
                             <div class="input-group">
                                 <label for="bill-id">Bill ID</label>
-                                <!-- "Pre-filled" from the table row -->
+                                <!-- 
+                                  *** FIX 3: Removed all hard-coded 'value' attributes ***
+                                  The JS will fill this now.
+                                -->
                                 <input type="text" id="bill-id" name="bill-id" 
-                                       value="BILL-1050" readonly class="readonly-input">
+                                       readonly class="readonly-input">
                             </div>
 
                             <div class="input-group">
                                 <label for="customer-name">Customer Name</label>
                                 <input type="text" id="customer-name" name="customer-name" 
-                                       value="John Doe" readonly class="readonly-input">
+                                       readonly class="readonly-input">
                             </div>
 
                             <div class="input-group">
                                 <label for="amount-due">Amount Due (Rs.)</label>
                                 <input type="text" id="amount-due" name="amount-due" 
-                                       value="3,450.00" readonly class="readonly-input">
+                                       readonly class="readonly-input">
                             </div>
                             
                             <div class="input-group">
                                 <label for="payment-amount">Payment Amount (Rs.) <span class="required-star">*</span></label>
                                 <input type="number" id="payment-amount" name="payment-amount" 
-                                       value="3450.00" required>
+                                       required step="0.01">
                             </div>
                             
                             <div class="input-group">
                                 <label for="payment-method">Payment Method <span class="required-star">*</span></label>
+                                <!-- 
+                                  *** FIX 4: Corrected values to match SQL ***
+                                -->
                                 <select id="payment-method" name="payment-method" required>
-                                    <option value="cash">Cash</option>
-                                    <option value="card">Card</option>
-                                    <option value="online">Online Transfer</option>
+                                    <option value="Cash">Cash</option>
+                                    <option value="Card">Card</option>
+                                    <option value="Online">Online</option>
                                 </select>
                             </div>
 
@@ -89,5 +103,11 @@
             </div>
         </main>
     </div>
+
+    <!-- 
+      *** FIX 5: Added the script tag ***
+    -->
+    <script src="cashier_app.js" defer></script>
+
 </body>
 </html>
