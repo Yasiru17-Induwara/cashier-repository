@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Record Payment - UMS</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        
+        <!-- --- Sidebar Navigation (Cashier) --- -->
+        <aside class="sidebar">
+            <div class="sidebar-header">
+                <h3>UMS Cashier</h3>
+            </div>
+            <!-- Updated simplified sidebar -->
+            <nav class="sidebar-nav">
+                <a href="cashier-dashboard.html" class="nav-item active">Outstanding Bills</a>
+                <a href="generate-bill.html" class="nav-item">Generate Bill</a>
+                <a href="login.html" class="nav-item">Logout</a>
+            </nav>
+        </aside>
+
+        <!-- --- Main Content Area --- -->
+        <main class="main-content">
+            <header class="main-header">
+                <h1>Record Customer Payment</h1>
+                <div class="user-profile">
+                    <span>Billing Clerk</span>
+                </div>
+            </header>
+
+            <div class="content-area">
+                
+                <div class="form-container">
+                    <h3>Process New Payment</h3>
+                    <p>Confirm the payment details for the selected bill.</p>
+                    
+                    <form class="data-form">
+                        <div class="form-grid">
+                            
+                            <div class="input-group">
+                                <label for="bill-id">Bill ID</label>
+                                <!-- "Pre-filled" from the table row -->
+                                <input type="text" id="bill-id" name="bill-id" 
+                                       value="BILL-1050" readonly class="readonly-input">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="customer-name">Customer Name</label>
+                                <input type="text" id="customer-name" name="customer-name" 
+                                       value="John Doe" readonly class="readonly-input">
+                            </div>
+
+                            <div class="input-group">
+                                <label for="amount-due">Amount Due (Rs.)</label>
+                                <input type="text" id="amount-due" name="amount-due" 
+                                       value="3,450.00" readonly class="readonly-input">
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="payment-amount">Payment Amount (Rs.) <span class="required-star">*</span></label>
+                                <input type="number" id="payment-amount" name="payment-amount" 
+                                       value="3450.00" required>
+                            </div>
+                            
+                            <div class="input-group">
+                                <label for="payment-method">Payment Method <span class="required-star">*</span></label>
+                                <select id="payment-method" name="payment-method" required>
+                                    <option value="cash">Cash</option>
+                                    <option value="card">Card</option>
+                                    <option value="online">Online Transfer</option>
+                                </select>
+                            </div>
+
+                            <div class="input-group">
+                                <label for="payment-date">Payment Date <span class="required-star">*</span></label>
+                                <input type="date" id="payment-date" name="payment-date" required>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="submit-button">Confirm Payment</button>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </main>
+    </div>
+</body>
+</html>
